@@ -12,11 +12,11 @@ function getProfile (username) {
 }
 
 function getRepos (username) {
-    return axios.get('https://api.github.com/users/' + username + '/repos&per_page=100');
+    return axios.get('https://api.github.com/users/' + username + '/repos');
 }
 
 function getStarCount (repos) {
-    return repos.data.reduce(function (count, item) {
+    return repos.data.reduce(function (count, repo) {
         return count + repo.stargazers_count;
     }, 0);
 }
@@ -33,7 +33,7 @@ function handleError (err) {
     return null;
 }
 
-function sortPlayers () {
+function sortPlayers (players) {
     return players.sort(function (a, b) {
         return b.score - a.score;
     });
