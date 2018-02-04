@@ -33,7 +33,7 @@ function Player (props) {
     return (
         <div>
             <h1 className='header'>{props.label}</h1>
-            <h3 style={{textAlign: 'center'}}>{props.score}</h3>
+            <h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
             <Profile info={props.profile}/>
         </div>
     )
@@ -103,7 +103,7 @@ class Results extends React.Component {
         }
 
         return (
-            <div className='Row'>
+            <div className='row'>
                 <Player
                     label='Winner'
                     score={winner.score}
